@@ -25,7 +25,7 @@ const (
 	TCP   AppRouteProtocol = "tcp"
 )
 
-type Manifest struct {
+type CloudFoundryManifest struct {
 	Version      string         `yaml:"version,omitempty"`
 	Space        string         `yaml:"space,omitempty"`
 	Applications []*AppManifest `yaml:"applications"`
@@ -150,8 +150,8 @@ type AppManifestSideCar struct {
 	Memory       string           `yaml:"memory,omitempty"`
 }
 
-func NewManifest(space string, applications ...*AppManifest) *Manifest {
-	return &Manifest{
+func NewCloudFoundryManifest(space string, applications ...*AppManifest) *CloudFoundryManifest {
+	return &CloudFoundryManifest{
 		Version:      "1",
 		Space:        space,
 		Applications: applications,
